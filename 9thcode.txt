@@ -1,0 +1,46 @@
+#Using random data values
+import plotly.express as px
+import pandas as pd
+# Sample data (you can replace this with your own dataset)
+data = {
+    'X': [1, 2, 3, 4, 5],
+    'Y': [5, 4, 3, 2, 1],
+    'Z': [2, 3, 4, 1, 5]
+}
+# Create a DataFrame from the data
+df = pd.DataFrame(data)
+# Create a 3D scatter plot
+fig = px.scatter_3d(df, x='X', y='Y', z='Z')
+# Show the plot
+fig.show()
+
+
+
+
+#Using data from text files
+import plotly.express as px 
+import pandas as pd 
+x =[]
+y= []
+z = []
+file = open('9.txt','r+')
+for lines in file:
+    ln = lines.split()
+    x.append(ln[0])
+    y.append(ln[1])
+    z.append(ln[2])
+data = {'x':x,'y':y,'z':z}
+df = pd.DataFrame(data)
+print(df)
+fig = px.scatter_3d(df, x='x', y='y', z='z')
+fig.show()
+
+
+
+#Using data from CSV
+import plotly.express as px 
+import pandas as pd 
+df = pd.read_csv('data.csv')
+fig = px.scatter_3d(df, x = df['modal_price'], y = df['max_price'], z = df['min_price'] )
+fig.show()
+
